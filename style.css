@@ -1,0 +1,237 @@
+/* ===== Global ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #1f3149;
+  color: #fff;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  overflow-x: hidden;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Section reveal */
+.section {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 60px;
+  background-color: #fff;
+  color: #000;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+  color: #1f3149;
+  border-bottom: 2px solid #1f3149;
+}
+
+/* ===== Hero ===== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 100px 10%;
+  gap: 40px;
+}
+
+.hero-content {
+  max-width: 550px;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  color: #d0d9e8;
+  font-size: 1.1rem;
+}
+
+.hero-content .btn {
+  margin-top: 25px;
+  display: inline-block;
+  background: #4fc3f7;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s, transform 0.2s;
+}
+.hero-content .btn:hover {
+  background: #2e9eca;
+  transform: scale(1.05);
+}
+
+.hero-img img {
+  width: 280px;
+  border-radius: 50%;
+  border: 3px solid #4fc3f7;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ===== About ===== */
+.about {
+  padding: 100px 10%;
+  text-align: center;
+}
+.about h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.about p {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #d0d9e8;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+/* ===== Projects ===== */
+.projects {
+  padding: 100px 10%;
+  text-align: center;
+}
+.projects h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* center rows so a second row with 2 items stays centered */
+  gap: 30px;
+}
+.project-card {
+  background: #263b5a;
+  padding: 30px 20px;
+  border-radius: 10px;
+  transition: transform 0.4s, box-shadow 0.3s;
+  /* Fixed width so exactly 3 cards fit per row on typical desktop widths */
+  flex: 0 0 260px;
+  box-sizing: border-box;
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.project-card h3 {
+  color: #4fc3f7;
+  margin-bottom: 10px;
+}
+
+/* ===== Contact ===== */
+.contact {
+  text-align: center;
+  padding: 100px 10%;
+}
+.contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.contact p {
+  color: #d0d9e8;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-weight: bold;
+}
+.social-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s, transform 0.3s;
+}
+.social-links a:hover {
+  color: #4fc3f7;
+  transform: scale(1.1);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #182737;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-img img {
+    width: 200px;
+  }
+  /* Stack project cards into a single column on small screens */
+  .project-grid {
+    justify-content: center;
+    gap: 20px;
+  }
+  .project-card {
+    flex: 0 0 100%;
+    max-width: 480px;
+  }
+}
